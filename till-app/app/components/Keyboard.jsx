@@ -1,10 +1,11 @@
 'use client'
+import { useState } from 'react'
 import {React} from 'react'
 
 
 const Keyboard = (props) => {
   
-  const {code, setCode} = props
+  const {code, setCode, productList} = props
   
   const addNumber = (number) => {    
     const newCode = code + number    
@@ -21,9 +22,27 @@ const Keyboard = (props) => {
     const newCode = code.slice(0, code.length-1 )
     setCode(newCode)
   }
-  const submit = () => {
-    
-  }
+
+
+ 
+    const submit = async () => {
+      const data = {
+        code : code,
+        product: Math.floor((Math.random() * 7))
+      };
+
+      const response = await fetch("/api/products", {
+        method: "POST",
+        body: JSON.stringify(data),
+      });
+      
+      const body = await response.json()
+      setCode('')
+      productList.push(body)
+      console.log(productList);
+    };
+  
+  
     return (
       <div>
         <form>
@@ -52,7 +71,7 @@ const Keyboard = (props) => {
           </div>
           <div>
           <button onClick={() => addNumber('00')}>00</button>
-          <button>Enter</button>
+          <button onClick={submit}>Enter</button>
           </div>
         </div>
 

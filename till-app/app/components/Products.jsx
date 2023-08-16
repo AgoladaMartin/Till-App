@@ -7,19 +7,12 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
-function createData(code, description, price) {
-  return { code, description, price };
-}
-
-const rows = [
-  createData('123456','Frozen yoghurt', 159),
-  createData('123456','Ice cream sandwich', 237),
-  createData('123456','Eclair', 262),
-
-];
 
 
-const Products = () => {
+const Products = (props) => {
+
+  const {productList} = props
+
   return (
     <TableContainer component={Paper}>
     <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -31,16 +24,16 @@ const Products = () => {
           </TableRow>
         </TableHead>
       <TableBody>
-        {rows.map((row) => (
-          <TableRow
-            key={row.name}
-            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-          >
-            <TableCell align="left">{row.code}</TableCell>
-            <TableCell align="center">{row.description}</TableCell>
-            <TableCell align="right">{row.price}</TableCell>
-          </TableRow>
-        ))}
+       {productList ?  productList.map((product) => (
+      <TableRow
+        key={Math.random()}
+        sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+      >
+        <TableCell align="left">{product.code}</TableCell>
+        <TableCell align="center">{product.description}</TableCell>
+        <TableCell align="right">{product.price}</TableCell>
+      </TableRow>
+    )) : ''}
       </TableBody>
     </Table>
   </TableContainer>
