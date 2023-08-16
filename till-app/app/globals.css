@@ -1,8 +1,38 @@
-#keyboard{
-  width: 300px;
-  height: 300px;
+#keyboard > div > button{
+  height: 60px;
+  width: 60px;
+  
+}
+#input-keyboard{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 5rem;
+  width: 15vw;
+  height: 30vh;
+  gap: 1rem;
+}
+#input-keyboard > form > input {
+  height: 30px;
 }
 #main{
   display: grid;
-  flex-direction: row;
+  flex-direction: column;
+  gap: 1rem;
+  grid-template:
+  "productList input-keyboard"
+  "total input-keyboard";
+}
+#total{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#total > hr{
+width: 50vw;
+}
+#productList{
+  height: 50vh;
+  overflow: auto;
+  width: 65vw;
 }

@@ -11,8 +11,8 @@ export default function Home() {
   return (
     <div id='main'>
       <Products productList={productList}></Products>
-      <Total></Total>
       <Keyboard  code={code} setCode={setCode} productList={productList} setProductList={setProductList}></Keyboard>
+      <Total productList={productList}></Total>
     </div>
   )
 }

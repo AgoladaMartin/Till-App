@@ -1,34 +1,35 @@
 'use client'
-import { useState } from 'react'
 import {React} from 'react'
 
 
 const Keyboard = (props) => {
   
+  //Recibimos los estados que vamos a necesitar mediante props
   const {code, setCode, productList} = props
   
+  //Función que añade un dígito al código de producto cada vez que hacemos click en un botón
   const addNumber = (number) => {    
     const newCode = code + number    
     setCode(newCode)    
     return code
     }
 
+  //Función que añade un dígito al código de producto si se usa el teclado externo
   const typing = (e) => {
     setCode(e.target.value)
   }  
 
-  const deleteNumber = () =>{
-   
+  //Función para borrar el último dígito añadido al pulsar el botón de borrado
+  const deleteNumber = () =>{   
     const newCode = code.slice(0, code.length-1 )
     setCode(newCode)
   }
 
-
- 
-    const submit = async () => {
+  //Función que recoge el código y lo envía a la Api
+  const submit = async () => {
       const data = {
         code : code,
-        product: Math.floor((Math.random() * 7))
+        product: Math.floor((Math.random() * 7)) //Generamos un número para que nos de un producto aleatorio en cada llamada
       };
 
       const response = await fetch("/api/products", {
@@ -37,16 +38,16 @@ const Keyboard = (props) => {
       });
       
       const body = await response.json()
-      setCode('')
+      setCode('') //Borramos el código de producto
       productList.push(body)
-      console.log(productList);
     };
   
   
     return (
-      <div>
+      <div id='input-keyboard'>
         <form>
-            <input type="text" value={code} onChange={typing}/>
+          <label for="code-input">Introduce un código</label>
+          <input type="text" id='code-input' value={code} onChange={typing}/>
         </form>
         <div id='keyboard'>
           <div>

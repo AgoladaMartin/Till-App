@@ -11,10 +11,12 @@ import Paper from '@mui/material/Paper';
 
 const Products = (props) => {
 
+  //Recibimos la lista de productos por props, en caso de estar vacia no se muestra nada
   const {productList} = props
 
   return (
-    <TableContainer component={Paper}>
+    <div id='productList'>
+    <TableContainer component={Paper} >
     <Table sx={{ minWidth: 650 }} aria-label="simple table">
     <TableHead>
           <TableRow>
@@ -37,6 +39,7 @@ const Products = (props) => {
       </TableBody>
     </Table>
   </TableContainer>
+  </div>
   )
 }
 

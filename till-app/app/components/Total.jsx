@@ -1,16 +1,17 @@
 import React from 'react'
 
-const Total = () => {
+const Total = (props) => {
+  const {productList} = props
   return (
-    <>
-    <p>Total (3) : 
+    <div id='total'>
+    <p>Total ({productList.length}) : 
     </p>
       <hr></hr>
     <p>Importe Pagado</p>
     <hr></hr>
     <p style={{color:"red"}}>Importe Pendiente</p>
     <hr></hr>
-    </>
+    </div>
     
   )
 }
