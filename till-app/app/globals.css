@@ -3,6 +3,9 @@
   width: 60px;
   
 }
+#keyboard{
+  display: block;
+}
 #input-keyboard{
   display: flex;
   flex-direction: column;

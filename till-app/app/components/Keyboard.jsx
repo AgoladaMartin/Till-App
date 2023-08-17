@@ -32,21 +32,29 @@ const Keyboard = (props) => {
         product: Math.floor((Math.random() * 7)) //Generamos un número para que nos de un producto aleatorio en cada llamada
       };
 
+      try {
+        
       const response = await fetch("/api/products", {
         method: "POST",
         body: JSON.stringify(data),
       });
       
       const body = await response.json()
+
       setCode('') //Borramos el código de producto
       productList.push(body)
+      } catch (error) {
+        alert('Código no válido, introduce uno de 5 dígitos')
+        setCode('')
+      }
+      
     };
   
   
     return (
       <div id='input-keyboard'>
         <form>
-          <label for="code-input">Introduce un código</label>
+          <label htmlFor="code-input">Introduce un código</label>
           <input type="text" id='code-input' value={code} onChange={typing}/>
         </form>
         <div id='keyboard'>
