@@ -24,7 +24,7 @@
   gap: 1rem;
   grid-template:
   "productList input-keyboard"
-  "total input-keyboard";
+  "total pay-button";
 }
 #total{
   display: flex;
@@ -38,4 +38,11 @@ width: 50vw;
   height: 50vh;
   overflow: auto;
   width: 65vw;
+}
+
+#pay-button{
+  width: 80px;
+  height: 60px;
+  background-color: green;
+  color: white;
 }

@@ -31,8 +31,10 @@ const Keyboard = (props) => {
         code : code,
         product: Math.floor((Math.random() * 7)) //Generamos un número para que nos de un producto aleatorio en cada llamada
       };
-
-      try {
+  //Validamos que el código tenga 5 dígitos númericos:
+  const validCode = /^[0-9]+$/;
+  if (data.code.length === 5 && data.code.match(validCode)){
+    try {
         
       const response = await fetch("/api/products", {
         method: "POST",
@@ -44,9 +46,16 @@ const Keyboard = (props) => {
       setCode('') //Borramos el código de producto
       productList.push(body)
       } catch (error) {
-        alert('Código no válido, introduce uno de 5 dígitos')
+        console.error(error)
         setCode('')
       }
+    }
+    else {
+      alert('Código no válido')
+      setCode('')
+
+    }
+      
       
     };
   

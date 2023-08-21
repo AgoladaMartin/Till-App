@@ -11,8 +11,12 @@ import Paper from '@mui/material/Paper';
 
 const Products = (props) => {
 
-  //Recibimos la lista de productos por props, en caso de estar vacia no se muestra nada
-  const {productList} = props
+  //Comprobamos si hay lista de productos en localstorage
+    const getlocalStorage = JSON.parse(
+      localStorage.getItem('productListStorage')
+    );
+  //Si hay lista en localstorage utilizamos esa, de lo contrario la que se recibe por props
+  const productList = getlocalStorage ? getlocalStorage : props.productList
 
   return (
     <div id='productList'>
