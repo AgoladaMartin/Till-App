@@ -8,7 +8,10 @@ const Footer = () => {
     const now = today.toLocaleDateString("es-ES")
 
   return (
-    <div>{now}</div>
+    <div id='footer'>
+      <p>{now}</p>
+      <p>@ Martin Garcia 2023</p>
+    </div>
   )
 }
 

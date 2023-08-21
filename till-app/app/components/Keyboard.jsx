@@ -1,11 +1,15 @@
 'use client'
-import {React} from 'react'
+import {React, useState} from 'react'
+import useStore from '../store/store';
 
 
-const Keyboard = (props) => {
+
+const Keyboard = () => {
   
   //Recibimos los estados que vamos a necesitar mediante props
-  const {code, setCode, productList} = props
+  const [code, setCode] = useStore((state)=>[state.code, state.setCode])
+  const {productList} = useStore((state) => state);
+
   
   //Función que añade un dígito al código de producto cada vez que hacemos click en un botón
   const addNumber = (number) => {    
@@ -45,6 +49,7 @@ const Keyboard = (props) => {
 
       setCode('') //Borramos el código de producto
       productList.push(body)
+      console.log('list', productList);
       } catch (error) {
         console.error(error)
         setCode('')

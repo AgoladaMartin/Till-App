@@ -6,23 +6,26 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import useStore from '../store/store';
 
 
 
-const Products = (props) => {
+const Products = () => {
 
-  //Recibimos la lista de productos por props, en caso de estar vacia no se muestra nada
-  const {productList} = props
+  //Accedemos a la lista de productos, en caso de estar vacia no se muestra nada
+  const {productList} = useStore((state) => state);
+  
+
 
   return (
     <div id='productList'>
     <TableContainer component={Paper} >
     <Table sx={{ minWidth: 650 }} aria-label="simple table">
-    <TableHead>
+    <TableHead >
           <TableRow>
-            <TableCell align="left">Código</TableCell>
-            <TableCell align="center">Descripción</TableCell>
-            <TableCell align="right">Precio</TableCell>
+            <TableCell className='table-head' align="left">Código</TableCell>
+            <TableCell   className='table-head' align="center">Descripción</TableCell>
+            <TableCell  className='table-head' align="right">Precio</TableCell>
           </TableRow>
         </TableHead>
       <TableBody>

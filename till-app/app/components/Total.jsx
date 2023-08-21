@@ -1,7 +1,11 @@
 import { React, useEffect } from 'react';
+import useStore from '../store/store';
 
-const Total = (props) => {
-  const {productList} = props
+const Total = () => {
+  //Accedemos a la lista de productos para poder sumar los totales
+  const {productList} = useStore((state) => state);
+
+
   let amount
   const totalAmount = (productList) => {
     if (productList) {
