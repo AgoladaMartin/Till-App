@@ -11,7 +11,7 @@ export default function Home() {
   const [productList, setProductList] = useState([])
   return (
     <div id='main'>
-      <Products productList={productList}></Products>
+      <Products productList={productList} setProductList={setProductList}></Products>
       <Keyboard  code={code} setCode={setCode} productList={productList} setProductList={setProductList}></Keyboard>
       <Total productList={productList}></Total>
       <PayButton productList={productList}></PayButton>

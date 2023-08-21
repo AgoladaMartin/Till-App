@@ -51,7 +51,7 @@ const Keyboard = (props) => {
       }
     }
     else {
-      alert('Código no válido')
+      alert('Código no válido, introduce 5 dígitos')
       setCode('')
 
     }
