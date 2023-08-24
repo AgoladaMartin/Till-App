@@ -21,14 +21,14 @@ const Products = () => {
     <div id='productList'>
     <TableContainer component={Paper} >
     <Table sx={{ minWidth: 650 }} aria-label="simple table">
-    <TableHead >
+    <TableHead id='table-head' >
           <TableRow>
             <TableCell className='table-head' align="left">Código</TableCell>
             <TableCell   className='table-head' align="center">Descripción</TableCell>
             <TableCell  className='table-head' align="right">Precio</TableCell>
           </TableRow>
         </TableHead>
-      <TableBody>
+      <TableBody  id='table-body'>
        {productList ?  productList.map((product) => (
       <TableRow
         key={Math.random()}

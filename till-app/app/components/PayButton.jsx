@@ -8,13 +8,11 @@ const PayButton = () => {
 
 
   
-  const subtotal = () =>{
-      alert('Redirigir al pago')
-  }
+ 
 
   //Si hay productos en la lista mostramos el botón subtotal, si está vacia no se muestra nada
   const render = (productList.length > 0) ? 
-  <button onClick={subtotal} id='pay-button'><Link id='payment-link' href={'/payment'}  >Subtotal</Link></button> :
+  <Link id='payment-link' href={'/payment'}  ><button id='pay-button'>Subtotal</button></Link> :
   ''
   return (
     <>

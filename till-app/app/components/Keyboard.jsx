@@ -4,17 +4,21 @@ import useStore from '../store/store';
 
 
 
-const Keyboard = () => {
-  
-  //Recibimos los estados que vamos a necesitar mediante props
+const Keyboard = (props) => {
+  //Accedemos a payment por las props, en caso de ser true se muestra el teclado de pago
+  const {payment} = props
+  //Establecemos el label en función de la vista
+  const label = payment ? 'Importe' : 'Intr. código 5 dígitos'
+  //Accedemos a los estados que vamos a necesitar
   const [code, setCode] = useStore((state)=>[state.code, state.setCode])
   const {productList} = useStore((state) => state);
+  const [paidAmount, setPaidAmount] = useStore((state) => [state.paidAmount,state.setPaidAmount]);
 
   
   //Función que añade un dígito al código de producto cada vez que hacemos click en un botón
   const addNumber = (number) => {    
-    const newCode = code + number    
-    setCode(newCode)    
+    const newCode = code + number
+    setCode(newCode)
     return code
     }
 
@@ -30,45 +34,46 @@ const Keyboard = () => {
   }
 
   //Función que recoge el código y lo envía a la Api
-  const submit = async () => {
-      const data = {
+  const submitCode = async () => {
+    const data = {
         code : code,
         product: Math.floor((Math.random() * 7)) //Generamos un número para que nos de un producto aleatorio en cada llamada
       };
-  //Validamos que el código tenga 5 dígitos númericos:
-  const validCode = /^[0-9]+$/;
-  if (data.code.length === 5 && data.code.match(validCode)){
-    try {
+    //Validamos que el código tenga 5 dígitos númericos:
+    const validCode = /^[0-9]+$/;
+      if (data.code.length === 5 && data.code.match(validCode)){
+        try {
         
-      const response = await fetch("/api/products", {
-        method: "POST",
-        body: JSON.stringify(data),
+          const response = await fetch("/api/products", {
+          method: "POST",
+          body: JSON.stringify(data),
       });
       
-      const body = await response.json()
-
-      setCode('') //Borramos el código de producto
-      productList.push(body)
-      console.log('list', productList);
-      } catch (error) {
+    const body = await response.json()
+    setCode('') //Borramos el código de producto
+    productList.push(body)
+        } catch (error) {
         console.error(error)
-        setCode('')
+        setCode('')}
       }
-    }
-    else {
+      else {
       alert('Código no válido, introduce 5 dígitos')
-      setCode('')
-
-    }
-      
-      
-    };
+      setCode('')}};
   
+  //Función manejadora del evento submit
+  const submit = () =>{
+    if (payment) {
+      const newCode = (parseInt(code)+parseInt(paidAmount)).toFixed(2)
+      setPaidAmount(newCode)
+      setCode('')
+    }
+    else submitCode()
+  }
   
     return (
       <div id='input-keyboard'>
         <form>
-          <label htmlFor="code-input">Introduce un código</label>
+          <label htmlFor="code-input">{label}</label>
           <input type="text" id='code-input' value={code} onChange={typing}/>
         </form>
         <div id='keyboard'>

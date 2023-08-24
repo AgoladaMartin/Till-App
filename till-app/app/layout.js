@@ -13,6 +13,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <title>Till-App @Martin Garcia</title>
+      </head>
       <body className={inter.className}>
         <header><Header></Header></header>
         {children}

@@ -4,17 +4,18 @@ import useStore from '../store/store';
 const Total = () => {
   //Accedemos a la lista de productos para poder sumar los totales
   const {productList} = useStore((state) => state);
+  const {paidAmount} = useStore((state) => state);
+
 
 
   let amount
+  let remainingAmount
   const totalAmount = (productList) => {
     if (productList) {
       amount = productList.reduce((acumulate, currentValue)=> acumulate + parseFloat(currentValue.price), 0).toFixed(2)
-      
-      return amount
+      remainingAmount = Number((amount-paidAmount)).toFixed(2)
+      return (amount,remainingAmount)
       }
-    
-    console.log(amount, 'outside');
     return amount = 0
   }
 
@@ -25,9 +26,9 @@ const Total = () => {
     <p>Total ({productList.length}) : {amount}
     </p>
       <hr></hr>
-    <p>Importe Pagado :  0.00</p>
+    <p>Importe Pagado :  {paidAmount}</p>
     <hr></hr>
-    <p style={{color:"red"}}>Importe Pendiente : {amount}</p>
+    <p style={{color:"red"}}>Importe Pendiente : {remainingAmount}</p>
     <hr></hr>
     </div>
     

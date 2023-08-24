@@ -7,14 +7,14 @@ import PayButton from './components/PayButton'
 
 export default function Home() {
 
-  const [code, setCode] = useState('')
-  const [productList, setProductList] = useState([])
+ 
+  
   return (
     <div id='main'>
       <Products  ></Products>
-      <Keyboard  code={code} setCode={setCode} ></Keyboard>
+      <Keyboard payment={false} ></Keyboard>
       <Total ></Total>
-      <PayButton  code={code} setCode={setCode} ></PayButton>
+      <PayButton  ></PayButton>
     </div>
   )
 }
