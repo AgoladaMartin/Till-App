@@ -60,23 +60,6 @@
   font-weight: bold ;
 }
 
-#back-link{
-  width: 80px;
-  height: 60px;
-  text-decoration:none;
-  color: white;
-}
-#back-button{
-  width: 80px;
-  height: 60px;
-  background-color: rgb(190, 163, 10);
-  color: white;
-}
-#back-button:hover{
-  background-color: rgb(150, 129, 9);
-  color: white;
-}
-
 #table-body{
 background-color: rgba(236, 235, 235, 0.644);
 }

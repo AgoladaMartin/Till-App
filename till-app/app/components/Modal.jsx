@@ -4,6 +4,8 @@ import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
 import { React, useState } from 'react';
 import Link from 'next/link'
+import useStore from '../store/store';
+
 
 
 
@@ -30,9 +32,19 @@ export default function BasicModal(props) {
 //En caso de que haya variable de apertura y no de cierre se muestra el modal
   let open = opened && !close ? true : false
 
- 
+//Accedemos a los estados que vamos a necesitar
+  const [setProductList] = useStore((state) => [state.setProductList]);
+  const [setPaidAmount] = useStore((state) => [state.setPaidAmount]);
 
 //TO DO: Crear los diferentes contenidos para el modal
+//Creamos función que cierra el modal e inicia una nueva transacción
+const finish = () => {
+  setProductList([])
+  setPaidAmount((0).toFixed(2))
+  setClose(true)
+
+}
+
 //Accedemos a las propiedades que queremos mostrar en el modal
 const {productList, paidAmount, remainingAmount, amount} = props
 const cashPayment = <div id='total'>
@@ -54,7 +66,7 @@ const cashPayment = <div id='total'>
       >
         <Box sx={style}>
       {cashPayment}
-      <Link id='back-link' href={'/'} ><Button onClick={()=>setClose(true)}>Aceptar</Button></Link>
+      <Link id='back-link' href={'/'} ><Button onClick={finish}>Aceptar</Button></Link>
         </Box>
       </Modal>
     </div>
