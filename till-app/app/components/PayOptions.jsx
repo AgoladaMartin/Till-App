@@ -5,7 +5,7 @@ import './payOptions.css'
 
 
 const PayOptions = (props) => {
-  const {cash,setCash,card,setCard}=props
+  const {setCash,setCard}=props
   const selectPaymentMode = (mode) =>{
     if (mode === 'cash') {setCash(true)}
     else setCard(true)

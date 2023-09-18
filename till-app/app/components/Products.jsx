@@ -36,7 +36,7 @@ const Products = () => {
       >
         <TableCell align="left">{product.code}</TableCell>
         <TableCell align="center">{product.description}</TableCell>
-        <TableCell align="right">{product.price}</TableCell>
+        <TableCell align="right">{product.price}€</TableCell>
       </TableRow>
     )) : ''}
       </TableBody>

@@ -33,12 +33,12 @@ const Total = () => {
 
   return (
     <div id='total'>
-    <p>Total ({productList.length}) : {amount}
+    <p>Total ({productList.length}) : {amount}€
     </p>
       <hr></hr>
-    <p>Importe Pagado :  {paidAmount}</p>
+    <p>Importe Pagado :  {paidAmount}€</p>
     <hr></hr>
-    <p style={{color:"red"}}>{(remainingAmount >= 0 || amount === 0) ? 'Importe Pendiente :' : 'Importe a devolver :'} {remainingAmount}</p>
+    <p style={{color:"red"}}>{(remainingAmount >= 0 || amount === 0) ? 'Importe Pendiente :' : 'Importe a devolver :'} {remainingAmount}€</p>
     <hr></hr>
     <BasicModal opened={opened} productList={productList} amount={amount} paidAmount={paidAmount} remainingAmount={remainingAmount}></BasicModal>
     </div>

@@ -5,6 +5,7 @@ import Modal from '@mui/material/Modal';
 import { React, useState } from 'react';
 import Link from 'next/link'
 import useStore from '../store/store';
+import Cash from './Cash';
 
 
 
@@ -15,7 +16,7 @@ const style = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 400,
+  width: 600,
   bgcolor: 'background.paper',
   border: '2px solid #000',
   boxShadow: 24,
@@ -47,15 +48,6 @@ const finish = () => {
 
 //Accedemos a las propiedades que queremos mostrar en el modal
 const {productList, paidAmount, remainingAmount, amount} = props
-const cashPayment = <div id='total'>
-<p>Total ({productList.length}) : {amount}
-</p>
-  <hr style={{width:"200px"}}></hr>
-<p>Importe Pagado :  {paidAmount}</p>
-<hr style={{width:"200px"}}></hr>
-<p style={{color:"red"}}>{remainingAmount >= 0 ? 'Importe Pendiente :' : 'Importe a devolver :'} {remainingAmount}</p>
-<hr style={{width:"200px"}}></hr>
-</div>
 
   return (
     <div>
@@ -65,8 +57,8 @@ const cashPayment = <div id='total'>
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-      {cashPayment}
-      <Link id='back-link' href={'/'} ><Button onClick={finish}>Aceptar</Button></Link>
+      <Cash  productList={productList} amount={amount} paidAmount={paidAmount} remainingAmount={remainingAmount}></Cash>
+      <div style={{display:'flex', justifyContent:'flex-end'}} ><Link id='back-link' href={'/'} ><Button onClick={finish}>Aceptar</Button></Link></div>
         </Box>
       </Modal>
     </div>
