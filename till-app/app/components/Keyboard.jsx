@@ -1,12 +1,16 @@
 'use client'
 import {React, useState} from 'react'
 import useStore from '../store/store';
+import './keyboard.css'
 
 
 
 const Keyboard = (props) => {
-  //Accedemos a payment por las props, en caso de ser true se muestra el teclado de pago
-  const {payment} = props
+  //Accedemos a las opciones a través de props
+  //Si payment es true se muestra el teclado de pago 
+  const {payment, cash} = props
+  //Mientras no se escoja la opción cash (cash = false), el botón enter está deshabilitado
+  const disabled = payment && !cash ? true : false
   //Establecemos el label en función de la vista
   const label = payment ? 'Importe' : 'Intr. código 5 dígitos'
   //Accedemos a los estados que vamos a necesitar
@@ -78,28 +82,28 @@ const Keyboard = (props) => {
         </form>
         <div id='keyboard'>
           <div>
-            <button onClick={() => addNumber('1')}>1</button>
-            <button onClick={() => addNumber('2')}>2</button>
-            <button onClick={() => addNumber('3')}>3</button>
+            <button className='button'onClick={() => addNumber('1')}>1</button>
+            <button className='button' onClick={() => addNumber('2')}>2</button>
+            <button className='button' onClick={() => addNumber('3')}>3</button>
           </div>
           <div>
-            <button onClick={() => addNumber('4')}>4</button>
-            <button onClick={() => addNumber('5')}>5</button>
-            <button onClick={() => addNumber('6')}>6</button>
+            <button className='button' onClick={() => addNumber('4')}>4</button>
+            <button className='button' onClick={() => addNumber('5')}>5</button>
+            <button className='button' onClick={() => addNumber('6')}>6</button>
           </div>
           <div>
-            <button onClick={() => addNumber('7')}>7</button>
-            <button onClick={() => addNumber('8')}>8</button>
-            <button onClick={() => addNumber('9')}>9</button>
+            <button className='button' onClick={() => addNumber('7')}>7</button>
+            <button className='button' onClick={() => addNumber('8')}>8</button>
+            <button className='button' onClick={() => addNumber('9')}>9</button>
           </div>
           <div>
-            <button onClick={() => addNumber('0')}>0</button>
-            <button onClick={() => addNumber(',')}>,</button>
-            <button onClick={deleteNumber}>&#8592;</button>
+            <button className='button' onClick={() => addNumber('0')}>0</button>
+            <button className='button' onClick={() => addNumber('00')}>00</button>            
+            <button className='button' onClick={deleteNumber}>&#8592;</button>
           </div>
           <div>
-          <button onClick={() => addNumber('00')}>00</button>
-          <button onClick={submit}>Enter</button>
+          <button className='button' onClick={() => addNumber(',')}>,</button>
+          <button className='button' disabled={disabled} id={disabled ? 'enter-button-disabled' : 'enter-button'} onClick={submit}>Enter</button>
           </div>
         </div>
 

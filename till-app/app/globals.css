@@ -1,38 +1,4 @@
-#keyboard > div > button{
-  height: 60px;
-  width: 60px;
-  background-color: rgb(0, 180, 136);
-  /* color: rgb(223, 229, 131); */
-  color: white;
-  border: none;
-  border-radius: 15%;  
-}
-#keyboard > div > button:hover{
-  background-color: rgb(3, 145, 109);
 
-}
-#keyboard{
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}
-#keyboard > div {
-  display: flex;
-  gap: 0.25rem;
-}
-#input-keyboard{
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-top: 5rem;
-  width: 15vw;
-  height: 30vh;
-  gap: 1rem;
-}
-
-#input-keyboard > form > input {
-  height: 30px;
-}
 #main{
   display: grid;
   flex-direction: column;
@@ -44,19 +10,7 @@
   "productList input-keyboard"
   "total pay-button";
 }
-#total{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-#total > hr{
-width: 50vw;
-}
-#productList{
-  height: 50vh;
-  overflow: auto;
-  width: 65vw;
-}
+
 
 #pay-button{
   width: 80px;
@@ -127,7 +81,5 @@ width: 50vw;
 background-color: rgba(236, 235, 235, 0.644);
 }
 #table-head{
-  background-color: rgb(0, 180, 136);
-
-
-  }
+  background-color: rgba(3, 197, 149, 0.596);
+}

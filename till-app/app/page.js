@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <div id='main'>
       <Products  ></Products>
-      <Keyboard payment={false} ></Keyboard>
+      <Keyboard ></Keyboard>
       <Total ></Total>
       <PayButton  ></PayButton>
     </div>

@@ -1,0 +1,39 @@
+.button{
+    height: 60px;
+    width: 60px;
+    background-color: rgb(3, 197, 149);
+    /* color: rgb(223, 229, 131); */
+    color: white;
+    border: none;
+    border-radius: 15%;  
+  }
+  #keyboard > div > button:hover{
+    background-color: rgb(3, 145, 109);
+  
+  }
+  #enter-button{
+    width: 124px;
+  
+  }
+  #keyboard{
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  #keyboard > div {
+    display: flex;
+    gap: 0.25rem;
+  }
+  #input-keyboard{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 5rem;
+    width: 15vw;
+    height: 30vh;
+    gap: 1rem;
+  }
+  
+  #input-keyboard > form > input {
+    height: 30px;
+  }

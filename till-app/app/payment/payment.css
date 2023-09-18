@@ -1,5 +1,12 @@
 #payment{
     padding-top: 1rem;
     padding-bottom: 1rem;
-     background-color: rgba(0, 180, 135, 0.137);
+    background-color: rgba(0, 180, 135, 0.137);
 }
+#enter-button-disabled:disabled{
+    width: 124px;
+    background-color: lightgrey;
+  }
+  #keyboard > div > #enter-button-disabled:hover{
+    background-color: lightgrey;
+  }

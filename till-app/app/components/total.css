@@ -1,0 +1,13 @@
+#total{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #total > hr{
+  width: 50vw;
+  }
+  #productList{
+    height: 50vh;
+    overflow: auto;
+    width: 65vw;
+  }
