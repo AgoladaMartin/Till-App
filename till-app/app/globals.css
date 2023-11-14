@@ -17,6 +17,8 @@
   height: 60px;
   background-color: green;
   color: white;
+  border: none;
+  border-radius: 15%;  
 }
 
 #pay-button:hover{

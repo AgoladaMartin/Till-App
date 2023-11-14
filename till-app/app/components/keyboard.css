@@ -9,10 +9,14 @@
   }
   #keyboard > div > button:hover{
     background-color: rgb(3, 145, 109);
-  
   }
+  #keyboard > div > button:disabled{
+    background-color: lightgrey;
+  }
+
   #enter-button{
-    width: 124px;
+    width: 186px;
+    border-radius: 10%;
   
   }
   #keyboard{
@@ -37,3 +41,10 @@
   #input-keyboard > form > input {
     height: 30px;
   }
+ form{
+  display: flex;
+  flex-direction: column;
+ }
+ #input-keyboard > form > input {
+  width: 188;
+ }

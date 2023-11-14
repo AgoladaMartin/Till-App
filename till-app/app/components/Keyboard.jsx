@@ -9,7 +9,7 @@ const Keyboard = (props) => {
   //Accedemos a las opciones a través de props
   //Si payment es true se muestra el teclado de pago 
   const {payment, cash} = props
-  //Mientras no se escoja la opción cash (cash = false), el botón enter está deshabilitado
+  //Mientras no se escoja la opción cash (cash = false), el teclado está deshabilitado
   const disabled = payment && !cash ? true : false
   //Establecemos el label en función de la vista
   const label = payment ? 'Importe' : 'Intr. código 5 dígitos'
@@ -78,31 +78,31 @@ const Keyboard = (props) => {
       <div id='input-keyboard'>
         <form>
           <label htmlFor="code-input">{label}</label>
-          <input type="text" id='code-input' value={code} onChange={typing}/>
+          <input style={{width:"180px"}} type="text" id='code-input' value={code} onChange={typing}/>
         </form>
         <div id='keyboard'>
           <div>
-            <button className='button'onClick={() => addNumber('1')}>1</button>
-            <button className='button' onClick={() => addNumber('2')}>2</button>
-            <button className='button' onClick={() => addNumber('3')}>3</button>
+            <button className='button' disabled={disabled} onClick={() => addNumber('1')}>1</button>
+            <button className='button' disabled={disabled} onClick={() => addNumber('2')}>2</button>
+            <button className='button' disabled={disabled} onClick={() => addNumber('3')}>3</button>
           </div>
           <div>
-            <button className='button' onClick={() => addNumber('4')}>4</button>
-            <button className='button' onClick={() => addNumber('5')}>5</button>
-            <button className='button' onClick={() => addNumber('6')}>6</button>
+            <button className='button' disabled={disabled} onClick={() => addNumber('4')}>4</button>
+            <button className='button' disabled={disabled} onClick={() => addNumber('5')}>5</button>
+            <button className='button' disabled={disabled} onClick={() => addNumber('6')}>6</button>
           </div>
           <div>
-            <button className='button' onClick={() => addNumber('7')}>7</button>
-            <button className='button' onClick={() => addNumber('8')}>8</button>
-            <button className='button' onClick={() => addNumber('9')}>9</button>
+            <button className='button' disabled={disabled} onClick={() => addNumber('7')}>7</button>
+            <button className='button' disabled={disabled} onClick={() => addNumber('8')}>8</button>
+            <button className='button' disabled={disabled} onClick={() => addNumber('9')}>9</button>
           </div>
           <div>
-            <button className='button' onClick={() => addNumber('0')}>0</button>
-            <button className='button' onClick={() => addNumber('00')}>00</button>            
-            <button className='button' onClick={deleteNumber}>&#8592;</button>
+            <button className='button' disabled={disabled} onClick={() => addNumber('0')}>0</button>
+            <button className='button' disabled={disabled} onClick={() => addNumber('00')}>00</button>            
+            <button className='button' disabled={disabled} onClick={deleteNumber}>&#8592;</button>
           </div>
           <div>
-          <button className='button' onClick={() => addNumber(',')}>,</button>
+          
           <button className='button' disabled={disabled} id={disabled ? 'enter-button-disabled' : 'enter-button'} onClick={submit}>Enter</button>
           </div>
         </div>

@@ -8,6 +8,7 @@ import './payment.css'
 
 
 const Payment = () => {
+  //Creamos un estado para cada método de pago y los enviamos por props
   const [cash, setCash] = useState()
   const [card, setCard] = useState()
   return (

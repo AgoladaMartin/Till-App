@@ -4,7 +4,7 @@
     background-color: rgba(0, 180, 135, 0.137);
 }
 #enter-button-disabled:disabled{
-    width: 124px;
+    width: 186px;
     background-color: lightgrey;
   }
   #keyboard > div > #enter-button-disabled:hover{

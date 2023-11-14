@@ -5,7 +5,7 @@
     color: white;
   }
   .payOptions-button{
-    width: 80px;
+    width: 85px;
     height: 60px;
     background-color: rgb(190, 163, 10);
     color: white;
@@ -16,8 +16,40 @@
     background-color: rgb(150, 129, 9);
     color: white;
   }
+  .payOptions-button-hidden{
+    display: none;
+  }
  #pay-options{
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  display: grid;
+  grid-template-areas:  "a b"  "c .";
+  justify-content: start;
+  align-content: start;
+  gap: 1rem;
+ }
+
+ #cash-button{
+  grid-area: a;
+  background-color: green;
+  color: white;
+  border: none;
+  border-radius: 15%;   
+ }
+ #cash-button:hover{
+  background-color: rgb(22, 102, 22);
+}
+
+ #card-button{
+  grid-area: b;
+  background-color: green;
+  color: white;
+  border: none;
+  border-radius: 15%;
+}
+#card-button:hover{
+  background-color: rgb(22, 102, 22);
+}
+
+ #back-button{
+  grid-area: c;
+  border: none;
  }
