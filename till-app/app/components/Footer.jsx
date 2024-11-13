@@ -1,5 +1,4 @@
 'use client'
-import React, { useEffect, useState } from 'react'
 
 const Footer = () => {
     // Crea un nuevo objeto `Date`

@@ -1,4 +1,3 @@
-import React from 'react'
 
 const Cash = (props) => {
 //Accedemos a las propiedades que queremos mostrar en el modal

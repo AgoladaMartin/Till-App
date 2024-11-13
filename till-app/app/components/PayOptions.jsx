@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
 import Link from 'next/link'
+import { useState } from 'react'
 import './payOptions.css'
 
 
@@ -15,7 +15,7 @@ const PayOptions = (props) => {
   const selectPaymentMode = (mode) =>{
     if (mode === 'cash') {setCash(true)}
     else {setCard(true)
-      alert('Pago con tarjeta por implementar')
+      console.log('Tarjeta');
     }
    setClassName('payOptions-button-hidden')
   }

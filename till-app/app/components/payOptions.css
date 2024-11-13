@@ -7,7 +7,7 @@
   .payOptions-button{
     width: 85px;
     height: 60px;
-    background-color: rgb(190, 163, 10);
+    background-color: rgba(190, 163, 10, 0.781);
     color: white;
     border-radius: 15%; 
 
@@ -29,7 +29,7 @@
 
  #cash-button{
   grid-area: a;
-  background-color: green;
+  background-color: rgba(0, 128, 0, 0.747);
   color: white;
   border: none;
   border-radius: 15%;   
@@ -40,7 +40,7 @@
 
  #card-button{
   grid-area: b;
-  background-color: green;
+  background-color: rgba(0, 128, 0, 0.747);
   color: white;
   border: none;
   border-radius: 15%;

@@ -1,7 +1,7 @@
 #payment{
     padding-top: 1rem;
     padding-bottom: 1rem;
-    background-color: rgba(0, 180, 135, 0.137);
+    background-color: rgba(50, 66, 62, 0.137);
 }
 #enter-button-disabled:disabled{
     width: 186px;

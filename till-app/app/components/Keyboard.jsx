@@ -1,7 +1,7 @@
 'use client'
-import {React, useState} from 'react'
+import { useEffect } from 'react';
 import useStore from '../store/store';
-import './keyboard.css'
+import './keyboard.css';
 
 
 
@@ -73,12 +73,29 @@ const Keyboard = (props) => {
     }
     else submitCode()
   }
+   // Efecto para manejar el evento de teclado
+   useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault(); // Prevenir la acción por defecto del Enter
+        submit(); 
+      }
+    };
+
+    // Añadir el evento de escucha
+    window.addEventListener('keydown', handleKeyDown);
+
+    // Limpiar el evento de escucha al desmontar el componente
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [code, paidAmount]); // Dependencias
   
     return (
       <div id='input-keyboard'>
         <form>
           <label htmlFor="code-input">{label}</label>
-          <input style={{width:"180px"}} type="text" id='code-input' value={code} onChange={typing}/>
+          <input style={{width:"180px"}} type="text" id='code-input' value={cash ? parseFloat(code || 0).toFixed(2) : code}  onChange={typing}/>
         </form>
         <div id='keyboard'>
           <div>

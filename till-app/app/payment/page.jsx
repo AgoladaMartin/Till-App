@@ -1,9 +1,10 @@
 'use client'
-import React, { useState } from 'react'
-import Products from '../components/Products'
+import { useState } from 'react'
+import Card from '../components/Card'
 import Keyboard from '../components/Keyboard'
-import Total from '../components/Total'
 import PayOptions from '../components/PayOptions'
+import Products from '../components/Products'
+import Total from '../components/Total'
 import './payment.css'
 
 
@@ -15,8 +16,9 @@ const Payment = () => {
     <div id='payment'>
       <Products></Products>
       <Keyboard payment={true} cash={cash}></Keyboard>
-      <Total></Total>
+      <Total cash={cash} card={card}></Total>
       <PayOptions cash={cash} setCash={setCash} card={card} setCard={setCard} ></PayOptions>
+      <Card opened={card}></Card>
     </div>
   )
 }

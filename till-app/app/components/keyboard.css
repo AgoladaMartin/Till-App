@@ -1,14 +1,14 @@
 .button{
     height: 60px;
     width: 60px;
-    background-color: rgb(3, 197, 149);
+    background-color: rgba(9, 19, 16, 0.801);
     /* color: rgb(223, 229, 131); */
     color: white;
     border: none;
     border-radius: 15%;  
   }
   #keyboard > div > button:hover{
-    background-color: rgb(3, 145, 109);
+    background-color: rgba(9, 19, 16, 0.404);
   }
   #keyboard > div > button:disabled{
     background-color: lightgrey;
@@ -44,7 +44,4 @@
  form{
   display: flex;
   flex-direction: column;
- }
- #input-keyboard > form > input {
-  width: 188;
  }
