@@ -12,6 +12,7 @@ import Cash from './Cash';
 
 
 
+
 const style = {
   position: 'absolute',
   top: '50%',
@@ -25,11 +26,9 @@ const style = {
 };
 
 export default function BasicModal(props) {
-  //Accedemos a la variable open para saber cuando mostrarlo
-  const { opened } = props
-
-  //Creamos variable de cerrado
-  const [close, setClose] = useState(false)
+  //Accedemos a la variables open y close para saber cuando mostrarlo
+  const { opened, close, setClose } = props
+  
 
   // Determinamos si el modal debe estar abierto
   const isOpen = () => {
@@ -86,8 +85,12 @@ export default function BasicModal(props) {
   };
 
   // Función para cerrar el modal sin alterar el estado
+  const { setClassName , setCard} = props //Accedemos a setClassName para volver a mostrar los botones de pago al cancelar la tarjeta
   const handleClose = () => {
     setClose(true)
+    setClassName('payOptions-button')
+    
+    setCard(false) //Establecemos false para que se vuelva a elegir método de pago
   };
 
   //Accedemos a las propiedades que queremos mostrar en el modal

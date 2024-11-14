@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import { useState } from 'react'
 import './payOptions.css'
 
 
@@ -8,14 +7,19 @@ const PayOptions = (props) => {
   //Recibimos las funciones para setear el método de pago elegido
   const {setCash,setCard}=props
 
-  //Creamos un estado que oculta los botones de forma de pago cuando se elija uno
-  const [className, setClassName] = useState('payOptions-button')
+  //Accedemos al estado className y a su función set para manejar cuando mostrar/ocultar los botones de pago
+  const { className, setClassName}=props
 
+  //Accedemos a la función setClose para poder volver a mostrar el modal al pulsar tarjeta tras haber sido cancelado el pago por el usuario
+  const { setClose }=props
   //Función que setea el método de pago elegido y oculta los botones
   const selectPaymentMode = (mode) =>{
-    if (mode === 'cash') {setCash(true)}
+    if (mode === 'cash') {setCash(true)
+      setClose(false)
+    }
     else {setCard(true)
       console.log('Tarjeta');
+      setClose(false)
     }
    setClassName('payOptions-button-hidden')
   }

@@ -12,7 +12,7 @@ const Total = (props) => {
   const {paidAmount} = useStore((state) => state);
 
   //Accedemos a las variables de método de pago
-  const {card, cash} = props
+  const {card, setCard ,cash, setCash, close, setClose} = props
 
   //Creamos variables para almacenar el total, y lo que falta por pagar.
   let amount
@@ -21,8 +21,8 @@ const Total = (props) => {
   //Creamos variable que controla la apertura del modal de pago
   let cashOpened
 
-  
-
+  //Accedemos a las variables de método de pago
+  const {setClassName} = props
   //Función que suma el total de los productos. Si no hay productos que sumar, retorna 0
   const totalAmount = (productList) => {
    
@@ -53,7 +53,7 @@ const Total = (props) => {
     <hr></hr>
     <p style={{color:"red"}}>{(remainingAmount >= 0 || amount === 0) ? 'Importe Pendiente :' : 'Importe a devolver :'} {remainingAmount}€</p>
     <hr></hr>
-    <BasicModal opened={cashOpened} productList={productList} amount={amount} paidAmount={paidAmount} remainingAmount={remainingAmount} card={card} cash={cash}></BasicModal>
+    <BasicModal opened={cashOpened} productList={productList} amount={amount} paidAmount={paidAmount} remainingAmount={remainingAmount} card={card} cash={cash} setClassName={setClassName} setCard={setCard} setCash={setCash} close={close} setClose={setClose}></BasicModal>
     
     </div>
   )
